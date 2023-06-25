@@ -1,0 +1,138 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "A starter on Mobile development NE\n\nMade with ❤️ by Bwiza Nina",
+        "title": "Mobile Development Starter",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "name": "Bwiza Cyndy Nina",
+            "email": "cyndyninah@gmail.com"
+        },
+        "version": "1.0.0"
+    },
+    "tags": [
+        {
+            "name": "PURCHASE TOKENS OPERATIONS",
+            "description": "Operations on electricity tokens"
+        }  
+    ],
+    "security": [
+        {
+            "Bearer": []
+        }
+    ],
+    "securityDefinitions": {
+        "Bearer": {
+            "type": "apiKey",
+            "name": "auth-token",
+            "in": "header",
+            "bearerFormat": "JWT",
+            "scheme": "bearer"
+        }
+    },
+    "paths": {
+        "/purchased-tokens/new": {
+            "post": {
+                "tags": [
+                    "TOKEN OPERATIONS"
+                ],
+                "summary": "Login",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "type": "object",
+                        "consumes": "application/json",
+                        "properties": {
+                            "amount": {
+                                "type": "number",
+                                "required": "true"
+                            },
+                            "meter_number": {
+                                "type": "string",
+                                "required": "true"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "400": {
+                        "description": "Invalid data"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/purchased-tokens/validate/:token": {
+            "get": {
+                "tags": [
+                    "TOKEN OPERATIONS"
+                ],
+                "summary": "Retrieves the history of tokens per meter number",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "400": {
+                        "description": "Invalid data"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/purchased-tokens/by-meter-number/:meter-number": {
+            "get": {
+                "tags": [
+                    "TOKEN OPERATIONS"
+                ],
+                "summary": "Retrieves the history of tokens per meter number",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "400": {
+                        "description": "Invalid data"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        }
+        
+    }
+}
